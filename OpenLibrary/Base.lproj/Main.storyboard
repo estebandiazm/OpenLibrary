@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,90 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OpenLibrary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KWr-Nh-EmW">
+                                <rect key="frame" x="75" y="142.5" width="225" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBs-fx-UOU">
+                                        <rect key="frame" x="0.0" y="0.0" width="225" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="225" id="Una-q0-jvc"/>
+                                            <constraint firstAttribute="height" constant="30" id="wlj-SD-ccw"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="webSearch"/>
+                                        <connections>
+                                            <action selector="searchKeyboard:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="AOt-Mc-h1V"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="uHN-V6-QcC">
+                                <rect key="frame" x="138" y="73" width="99" height="20.5"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingrese ISBN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g8g-9D-Hc3">
+                                <rect key="frame" x="138" y="73" width="99" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIB-l7-5YZ">
+                                <rect key="frame" x="73" y="239.5" width="51" height="30"/>
+                                <state key="normal" title="Limpiar"/>
+                                <connections>
+                                    <action selector="cleanISBN:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QYp-O9-x7r"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sCm-ho-LdM">
+                                <rect key="frame" x="253" y="239.5" width="48" height="30"/>
+                                <state key="normal" title="Buscar"/>
+                                <connections>
+                                    <action selector="searchBook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BZm-QJ-VNK"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ana-6I-4NN">
+                                <rect key="frame" x="67" y="335" width="240" height="162"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="uHN-V6-QcC" firstAttribute="centerX" secondItem="KWr-Nh-EmW" secondAttribute="centerX" id="BGc-sX-FVT"/>
+                            <constraint firstItem="g8g-9D-Hc3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JnG-vW-d4q"/>
+                            <constraint firstItem="sCm-ho-LdM" firstAttribute="top" secondItem="KWr-Nh-EmW" secondAttribute="bottom" constant="67" id="LKu-m5-6os"/>
+                            <constraint firstItem="ana-6I-4NN" firstAttribute="top" secondItem="ZIB-l7-5YZ" secondAttribute="bottom" constant="66" id="NH2-ap-Re1"/>
+                            <constraint firstItem="uHN-V6-QcC" firstAttribute="top" secondItem="g8g-9D-Hc3" secondAttribute="top" id="RWY-hf-MpE"/>
+                            <constraint firstItem="sCm-ho-LdM" firstAttribute="baseline" secondItem="ZIB-l7-5YZ" secondAttribute="baseline" id="SBp-Df-poE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ana-6I-4NN" secondAttribute="bottom" constant="170" id="V4Z-VC-xzV"/>
+                            <constraint firstItem="uHN-V6-QcC" firstAttribute="trailing" secondItem="g8g-9D-Hc3" secondAttribute="trailing" id="VTo-MS-pnv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="sCm-ho-LdM" secondAttribute="trailing" constant="74" id="cN1-Mt-WEk"/>
+                            <constraint firstItem="uHN-V6-QcC" firstAttribute="leading" secondItem="g8g-9D-Hc3" secondAttribute="leading" id="cmg-yO-UHM"/>
+                            <constraint firstItem="ana-6I-4NN" firstAttribute="centerX" secondItem="KWr-Nh-EmW" secondAttribute="centerX" id="crN-kf-eLf"/>
+                            <constraint firstItem="g8g-9D-Hc3" firstAttribute="bottom" secondItem="uHN-V6-QcC" secondAttribute="bottom" id="fG2-bV-3Ry"/>
+                            <constraint firstItem="ana-6I-4NN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="rSs-zS-STq"/>
+                            <constraint firstItem="KWr-Nh-EmW" firstAttribute="top" secondItem="uHN-V6-QcC" secondAttribute="bottom" constant="49" id="rfu-ZA-PwK"/>
+                            <constraint firstItem="uHN-V6-QcC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="53" id="ua0-Kl-IW9"/>
+                            <constraint firstItem="ZIB-l7-5YZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="vHJ-z4-Oso"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="ISBNField" destination="mBs-fx-UOU" id="m6c-2a-Zyr"/>
+                        <outlet property="cleanButton" destination="ZIB-l7-5YZ" id="CY8-5G-iRj"/>
+                        <outlet property="searchButton" destination="sCm-ho-LdM" id="LTA-rD-xKJ"/>
+                        <outlet property="textView" destination="ana-6I-4NN" id="wSn-sw-r0i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
         </scene>
     </scenes>
 </document>
